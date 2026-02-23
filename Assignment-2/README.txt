@@ -14,3 +14,5 @@ The retrieval parquet file is organized by rows with column names like query_ind
 
 There is also a .ipynb file that I attached which contains my code and logic with comments. 
 The file is called Shreyon Roy_Assignment 2_Artificial_Intelligence.ipynb.
+
+I have also attached a PDF report file named Shreyon Roy_sr5655_AI Assignment 2_Report CS-GY_6613.pdf
