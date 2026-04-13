@@ -119,28 +119,30 @@ Scaling strategy per component
 Failure isolation boundaries
 Answer: 
 The Mermaid diagram code is:
+
+```mermaid
 flowchart LR
-   A[Source Connectors] --> B[Ingestion Orchestrator]
-   B --> C[Parser Service]
-   C --> D[Chunking & Enrichment]
-   D --> E[Embedding Service]
-   D --> F[Metadata Extractor]
-   D --> G[Graph Builder]
-   E --> H[Index Writer]
-   F --> H
-   G --> H
-   H --> I[Hybrid Retrieval API]
-   I --> J[Reranker Service]
-   J --> K[Agent/Reasoning Service]
-   K --> L[Serving API]
+    A["Source Connectors"] --> B["Ingestion Orchestrator"]
+    B --> C["Parser Service"]
+    C --> D["Chunking and Enrichment"]
+    D --> E["Embedding Service"]
+    D --> F["Metadata Extractor"]
+    D --> G["Graph Builder"]
+    E --> H["Index Writer"]
+    F --> H
+    G --> H
+    H --> I["Hybrid Retrieval API"]
+    I --> J["Reranker Service"]
+    J --> K["Agent and Reasoning Service"]
+    K --> L["Serving API"]
 
-
-   M[(Object Store)] --> C
-   N[(Metadata DB)] --> B
-   O[(Search/Vector Store)] --> I
-   P[(Memory Store)] --> K
-   Q[(Trace/Event Log)] --> B
-   Q --> K
+    M[("Object Store")] --> C
+    N[("Metadata DB")] --> B
+    O[("Search and Vector Store")] --> I
+    P[("Memory Store")] --> K
+    Q[("Trace and Event Log")] --> B
+    Q --> K
+```
 
 Stateless vs stateful services:
 Stateless services are API gateway, retrieval coordinator, reranker workers, agent orchestration workers, parser workers, and embedding workers. Stateful services are object store for raw documents, metadata DB, search/vector index, graph store, memory store, queue/event bus, and cache/session store.
